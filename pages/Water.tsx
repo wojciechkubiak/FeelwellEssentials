@@ -1,9 +1,10 @@
 import { Text, View } from "react-native";
+import { ScreenNames } from "../models/Page";
 
 const Water = () => {
   return (
     <View>
-      <Text>Water</Text>
+      <Text>{ScreenNames.Water}</Text>
     </View>
   );
 };

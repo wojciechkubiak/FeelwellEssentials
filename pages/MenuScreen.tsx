@@ -2,15 +2,12 @@ import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { StyleSheet, View } from "react-native";
 import Layout from "../components/Layout";
 import NavigationButton from "../components/NavigationButton";
-import { StackKey, StackParamList } from "../models/Page";
+import { ScreenNames, StackKey, StackParamList } from "../models/Page";
 
 type IMenuScreen = NativeStackScreenProps<StackParamList, "Menu">;
 
 const MenuScreen = ({ navigation }: IMenuScreen) => {
-  const handleNavigate = (
-    page: StackKey = "Menu",
-    props: Object | undefined = {}
-  ) => {
+  const handleNavigate = (page: StackKey = "Menu", props: Object = {}) => {
     navigation.navigate(page, props);
   };
 
@@ -21,31 +18,31 @@ const MenuScreen = ({ navigation }: IMenuScreen) => {
           onPress={() => {
             handleNavigate("Meditation");
           }}
-          text="Meditate"
+          text={ScreenNames.Meditation}
         />
         <NavigationButton
           onPress={() => {
             handleNavigate("Fasting");
           }}
-          text="Fasting"
+          text={ScreenNames.Fasting}
         />
         <NavigationButton
           onPress={() => {
             handleNavigate("Exercise");
           }}
-          text="Exercise"
+          text={ScreenNames.Exercise}
         />
         <NavigationButton
           onPress={() => {
             handleNavigate("Water");
           }}
-          text="Water"
+          text={ScreenNames.Water}
         />
         <NavigationButton
           onPress={() => {
             handleNavigate("Settings");
           }}
-          text="Settings"
+          text={ScreenNames.Settings}
           isWide
         />
       </View>

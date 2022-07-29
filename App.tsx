@@ -10,6 +10,7 @@ import Exercise from "./pages/Exercise";
 import Water from "./pages/Water";
 import Settings from "./pages/Settings";
 import { Config } from "./config/config";
+import { ScreenNames } from "./models/Page";
 
 const Stack = createNativeStackNavigator();
 
@@ -29,15 +30,15 @@ const App = () => {
       ) : (
         <Stack.Navigator>
           <Stack.Screen
-            name="Menu"
+            name={ScreenNames.Menu}
             component={MenuScreen}
             options={{ headerShown: false }}
           />
-          <Stack.Screen name="Meditation" component={Meditation} />
-          <Stack.Screen name="Fasting" component={Fasting} />
-          <Stack.Screen name="Exercise" component={Exercise} />
-          <Stack.Screen name="Water" component={Water} />
-          <Stack.Screen name="Settings" component={Settings} />
+          <Stack.Screen name={ScreenNames.Meditation} component={Meditation} />
+          <Stack.Screen name={ScreenNames.Fasting} component={Fasting} />
+          <Stack.Screen name={ScreenNames.Exercise} component={Exercise} />
+          <Stack.Screen name={ScreenNames.Water} component={Water} />
+          <Stack.Screen name={ScreenNames.Settings} component={Settings} />
         </Stack.Navigator>
       )}
     </NavigationContainer>

@@ -1,3 +1,4 @@
 export const Config = {
   INITIAL_LOADING_TIME: 5000,
+  LOADING_SCREEN_ICON_SIZE: 112,
 };

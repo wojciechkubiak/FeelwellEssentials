@@ -1,9 +1,10 @@
 import { Text, View } from "react-native";
+import { ScreenNames } from "../models/Page";
 
 const Exercise = () => {
   return (
     <View>
-      <Text>Exercise</Text>
+      <Text>{ScreenNames.Exercise}</Text>
     </View>
   );
 };

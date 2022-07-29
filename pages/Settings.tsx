@@ -1,9 +1,10 @@
 import { Text, View } from "react-native";
+import { ScreenNames } from "../models/Page";
 
 const Settings = () => {
   return (
     <View>
-      <Text>Settings</Text>
+      <Text>{ScreenNames.Settings}</Text>
     </View>
   );
 };
