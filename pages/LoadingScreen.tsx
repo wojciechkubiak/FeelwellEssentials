@@ -1,14 +1,18 @@
-import { ActivityIndicator, View } from "react-native";
-import { Config } from "../config/config";
+import { View, Text } from "react-native";
+import LottieView from "lottie-react-native";
 import Layout from "../components/Layout";
+import Animation from "../assets/load.json";
+import { Config } from "../config/config";
 
 const LoadingScreen = () => {
   return (
     <Layout>
       <View>
-        <ActivityIndicator
-          size={Config.LOADING_SCREEN_ICON_SIZE}
-          color="#00ff00"
+        <LottieView
+          style={{ height: Config.LOADING_SCREEN_ICON_SIZE }}
+          source={Animation}
+          autoPlay
+          loop
         />
       </View>
     </Layout>

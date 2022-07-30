@@ -23,6 +23,11 @@ const App = () => {
     }, Config.INITIAL_LOADING_TIME);
   }, []);
 
+  const baseStyle = {
+    navigationBarColor: "black",
+    statusBarColor: "white",
+  };
+
   return (
     <NavigationContainer>
       {isLoading ? (
@@ -32,13 +37,43 @@ const App = () => {
           <Stack.Screen
             name={ScreenNames.Menu}
             component={MenuScreen}
-            options={{ headerShown: false }}
+            options={{ ...baseStyle, headerShown: false }}
           />
-          <Stack.Screen name={ScreenNames.Meditation} component={Meditation} />
-          <Stack.Screen name={ScreenNames.Fasting} component={Fasting} />
-          <Stack.Screen name={ScreenNames.Exercise} component={Exercise} />
-          <Stack.Screen name={ScreenNames.Water} component={Water} />
-          <Stack.Screen name={ScreenNames.Settings} component={Settings} />
+          <Stack.Screen
+            name={ScreenNames.Meditation}
+            component={Meditation}
+            options={{
+              ...baseStyle,
+            }}
+          />
+          <Stack.Screen
+            name={ScreenNames.Fasting}
+            component={Fasting}
+            options={{
+              ...baseStyle,
+            }}
+          />
+          <Stack.Screen
+            name={ScreenNames.Exercise}
+            component={Exercise}
+            options={{
+              ...baseStyle,
+            }}
+          />
+          <Stack.Screen
+            name={ScreenNames.Water}
+            component={Water}
+            options={{
+              ...baseStyle,
+            }}
+          />
+          <Stack.Screen
+            name={ScreenNames.Settings}
+            component={Settings}
+            options={{
+              ...baseStyle,
+            }}
+          />
         </Stack.Navigator>
       )}
     </NavigationContainer>
