@@ -11,7 +11,7 @@ export class Timer {
   isCompleted: boolean;
 
   constructor(
-    timerState: TimerState,
+    timerState: TimerState = TimerState.STOPPED,
     millisecondsLeft: number = 36000,
     isCompleted: boolean = false
   ) {

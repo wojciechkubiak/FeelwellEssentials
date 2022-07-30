@@ -1,24 +1,15 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { Button, Text, View } from "react-native";
-import BackgroundTimer from "react-native-background-timer";
+import { Timer } from "../models/Timer";
 
 const Exercise = () => {
-  const [timer, setTimer] = useState<number>(36000);
-  const tm = BackgroundTimer;
+  const timer: Timer = new Timer();
 
-  console.log(tm);
   useEffect(() => {
-    const loadInitTimer = () => setTimer(16000);
-
-    loadInitTimer();
+    console.log(timer);
   }, []);
 
-  const handleStart = () => {
-    console.log(tm);
-    tm.runBackgroundTimer(() => {
-      setTimer(timer - 1000);
-    }, 1000);
-  };
+  const handleStart = () => {};
 
   return (
     <View>
