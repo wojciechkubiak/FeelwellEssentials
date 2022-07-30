@@ -26,6 +26,7 @@ const App = () => {
   const baseStyle = {
     navigationBarColor: "black",
     statusBarColor: "white",
+    headerTitleStyle: { color: "white" },
   };
 
   return (
@@ -58,6 +59,7 @@ const App = () => {
             component={Exercise}
             options={{
               ...baseStyle,
+              headerBackTitleVisible: false,
             }}
           />
           <Stack.Screen

@@ -1,4 +1,4 @@
-import { View, Text } from "react-native";
+import { View } from "react-native";
 import LottieView from "lottie-react-native";
 import Layout from "../components/Layout";
 import Animation from "../assets/load.json";

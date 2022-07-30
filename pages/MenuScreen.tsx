@@ -1,4 +1,3 @@
-import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { StyleSheet, View } from "react-native";
 import Layout from "../components/Layout";
 import NavigationButton from "../components/NavigationButton";
@@ -8,6 +7,7 @@ import { faCog } from "@fortawesome/free-solid-svg-icons/faCog";
 import { faTint } from "@fortawesome/free-solid-svg-icons/faTint";
 import { faCutlery } from "@fortawesome/free-solid-svg-icons/faCutlery";
 import { faLeaf } from "@fortawesome/free-solid-svg-icons/faLeaf";
+import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 type IMenuScreen = NativeStackScreenProps<StackParamList, "Menu">;
 

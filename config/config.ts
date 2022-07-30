@@ -1,6 +1,20 @@
 export const Config = {
   INITIAL_LOADING_TIME: 3000,
   LOADING_SCREEN_ICON_SIZE: 520,
-  ACCENT_COLOR: "#56CB4B",
-  ACCENT_COLOR_DARK: "#4cb342",
+  COLORS: {
+    GREEN50: "#e8f5e9",
+    GREEN100: "#c8e6c9",
+    GREEN200: "#a5d6a7",
+    GREEN300: "#81c784",
+    GREEN400: "#66bb6a",
+    GREEN500: "#4caf50",
+    GREEN600: "#43a047",
+    GREEN700: "#388e3c",
+    GREEN800: "#2e7d32",
+    GREEN900: "#1b5e20",
+    NEONGREEN100: "#b9f6ca",
+    NEONGREEN200: "#69f0ae",
+    NEONGREEN400: "#00e676",
+    NEONGREEN700: "#00c853",
+  },
 };
