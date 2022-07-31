@@ -10,6 +10,8 @@ interface IPlayButton {
 }
 
 const PlayButton = ({ onPress, disabled = false }: IPlayButton) => {
+  const ICON_SIZE = 32;
+
   return (
     <TouchableHighlight
       onPress={onPress}
@@ -23,7 +25,7 @@ const PlayButton = ({ onPress, disabled = false }: IPlayButton) => {
         <FontAwesomeIcon
           color={disabled ? Config.COLORS.GREEN400 : "white"}
           icon={disabled ? faPause : faPlay}
-          size={32}
+          size={ICON_SIZE}
         />
       </View>
     </TouchableHighlight>

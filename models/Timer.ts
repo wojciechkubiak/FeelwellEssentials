@@ -11,6 +11,7 @@ export class TimerModel {
 
     const minutesText = minutes > 9 ? minutes : `0${minutes}`;
     const secondsText = seconds > 9 ? seconds : `0${seconds}`;
+
     return `${minutesText}:${secondsText}`;
   }
 }

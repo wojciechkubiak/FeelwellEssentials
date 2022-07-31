@@ -1,18 +1,20 @@
 import { useState } from "react";
-import { TimerModel, TimerState } from "../models/Timer";
 import { CountdownCircleTimer } from "react-native-countdown-circle-timer";
 import { StyleSheet, Text, View } from "react-native";
+
+import { Config } from "../config/config";
+import { TimerModel, TimerState } from "../models/Timer";
 import PlayButton from "./PlayButton";
 import CustomButton from "./CustomButton";
-import { Config } from "../config/config";
 
 interface ITimer {
   onUpdate: (n: number) => void;
   duration: number;
   isCompleted: boolean;
+  size?: number;
 }
 
-const Timer = ({ onUpdate, duration, isCompleted }: ITimer) => {
+const Timer = ({ onUpdate, duration, isCompleted, size = 240 }: ITimer) => {
   const [timerState, setTimerState] = useState<TimerState>(TimerState.STOPPED);
   const [key, setKey] = useState<number>(0);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
@@ -29,24 +31,26 @@ const Timer = ({ onUpdate, duration, isCompleted }: ITimer) => {
     setTimerState(timerState);
   };
 
+  const handleUpdate = (remainingTime: number) => {
+    onUpdate(remainingTime);
+
+    if (!remainingTime) {
+      handleButtonPress(TimerState.STOPPED);
+    }
+  };
+
   const isStarted = timerState === TimerState.STARTED;
 
   return (
     <View>
       <CountdownCircleTimer
-        size={240}
+        size={size}
         key={key}
         isPlaying={isPlaying}
         duration={duration}
-        colors={[`#81c784`, `#66bb6a`, "#4caf50", "#43a047"]}
+        colors={["#81c784", "#66bb6a", "#4caf50", "#43a047"]}
         colorsTime={[duration, duration * 0.66, duration * 0.33, 0]}
-        onUpdate={(remainingTime: number) => {
-          onUpdate(remainingTime);
-
-          if (!remainingTime) {
-            handleButtonPress(TimerState.STOPPED);
-          }
-        }}
+        onUpdate={handleUpdate}
       >
         {({ remainingTime }) => (
           <Text style={styles.timerText}>

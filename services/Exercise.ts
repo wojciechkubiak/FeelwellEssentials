@@ -1,6 +1,4 @@
-import { getDBConnection } from "./database";
-import * as SQLite from "expo-sqlite";
-
+import { getDBConnection } from "./Database";
 import { ExerciseModel } from "./../models/Exercise";
 
 const db = getDBConnection();
@@ -33,7 +31,7 @@ export const getExercise = async (): Promise<ExerciseModel> => {
     });
   } catch (error) {
     console.error(error);
-    throw Error(`Failed to get Exercise item`);
+    throw Error(`Failed to get Exercise`);
   }
 };
 

@@ -6,16 +6,18 @@ import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 interface INavigationButton {
   onPress: () => void;
   text: string;
-  isWide?: boolean;
   icon: IconDefinition;
+  isWide?: boolean;
 }
 
 const NavigationButton = ({
   onPress,
   text,
-  isWide = false,
   icon,
+  isWide = false,
 }: INavigationButton) => {
+  const ICON_SIZE = 32;
+
   return (
     <TouchableHighlight
       onPress={onPress}
@@ -26,7 +28,7 @@ const NavigationButton = ({
         <FontAwesomeIcon
           color={isWide ? "white" : "rgba(0, 0, 0, 0.6)"}
           icon={icon}
-          size={32}
+          size={ICON_SIZE}
         />
         <Text
           style={[styles.text, isWide ? styles.textWide : styles.textSmall]}

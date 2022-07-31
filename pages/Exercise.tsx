@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
-import Timer from "../components/Timer";
+
 import { DateModel } from "../models/Date";
 import { ExerciseModel } from "../models/Exercise";
 import { getExercise, saveExercise } from "../services/Exercise";
+import Timer from "../components/Timer";
 
 const Exercise = () => {
   const [isCompleted, setIsCompleted] = useState<boolean>(false);

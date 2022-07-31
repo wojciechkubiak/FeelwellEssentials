@@ -13,27 +13,25 @@ const CustomButton = ({
   text,
   disabled = false,
   isAccentColor = false,
-}: ICustomButton) => {
-  return (
-    <TouchableHighlight
-      onPress={onPress}
-      style={[
-        styles.button,
-        isAccentColor ? styles.buttonActive : styles.buttonDisabled,
-      ]}
-      underlayColor={
-        isAccentColor ? Config.COLORS.GREEN500 : Config.COLORS.GREEN50
-      }
-      disabled={disabled}
-    >
-      <View style={styles.container}>
-        <Text style={isAccentColor ? styles.textAccent : styles.textBasic}>
-          {text}
-        </Text>
-      </View>
-    </TouchableHighlight>
-  );
-};
+}: ICustomButton) => (
+  <TouchableHighlight
+    onPress={onPress}
+    style={[
+      styles.button,
+      isAccentColor ? styles.buttonActive : styles.buttonDisabled,
+    ]}
+    underlayColor={
+      isAccentColor ? Config.COLORS.GREEN500 : Config.COLORS.GREEN50
+    }
+    disabled={disabled}
+  >
+    <View style={styles.container}>
+      <Text style={isAccentColor ? styles.textAccent : styles.textBasic}>
+        {text}
+      </Text>
+    </View>
+  </TouchableHighlight>
+);
 
 const styles = StyleSheet.create({
   container: {

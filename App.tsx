@@ -11,10 +11,16 @@ import Water from "./pages/Water";
 import Settings from "./pages/Settings";
 import { Config } from "./config/config";
 import { ScreenNames } from "./models/Page";
-import { getDBConnection } from "./services/database";
+import { getDBConnection } from "./services/Database";
 import { createExercisesTable } from "./services/Exercise";
 
 const Stack = createNativeStackNavigator();
+
+const BASE_STYLE = {
+  navigationBarColor: "black",
+  statusBarColor: "white",
+  headerTitleStyle: { color: "white" },
+};
 
 const App = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -31,12 +37,6 @@ const App = () => {
     }, Config.INITIAL_LOADING_TIME);
   }, []);
 
-  const baseStyle = {
-    navigationBarColor: "black",
-    statusBarColor: "white",
-    headerTitleStyle: { color: "white" },
-  };
-
   return (
     <NavigationContainer>
       {isLoading ? (
@@ -46,27 +46,27 @@ const App = () => {
           <Stack.Screen
             name={ScreenNames.Menu}
             component={MenuScreen}
-            options={{ ...baseStyle, headerShown: false }}
+            options={{ ...BASE_STYLE, headerShown: false }}
           />
           <Stack.Screen
             name={ScreenNames.Meditation}
             component={Meditation}
             options={{
-              ...baseStyle,
+              ...BASE_STYLE,
             }}
           />
           <Stack.Screen
             name={ScreenNames.Fasting}
             component={Fasting}
             options={{
-              ...baseStyle,
+              ...BASE_STYLE,
             }}
           />
           <Stack.Screen
             name={ScreenNames.Exercise}
             component={Exercise}
             options={{
-              ...baseStyle,
+              ...BASE_STYLE,
               headerBackTitleVisible: false,
             }}
           />
@@ -74,14 +74,14 @@ const App = () => {
             name={ScreenNames.Water}
             component={Water}
             options={{
-              ...baseStyle,
+              ...BASE_STYLE,
             }}
           />
           <Stack.Screen
             name={ScreenNames.Settings}
             component={Settings}
             options={{
-              ...baseStyle,
+              ...BASE_STYLE,
             }}
           />
         </Stack.Navigator>
