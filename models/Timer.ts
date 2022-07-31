@@ -4,7 +4,7 @@ export enum TimerState {
   STOPPED,
 }
 
-export class Timer {
+export class TimerModel {
   static getMinutesAndSeconds(timeInSeconds: number): string {
     const minutes = timeInSeconds < 60 ? 0 : Math.floor(timeInSeconds / 60);
     const seconds = !minutes ? timeInSeconds : timeInSeconds - minutes * 60;
