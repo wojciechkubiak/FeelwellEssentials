@@ -1,8 +1,29 @@
-import { StyleSheet, Button, Text, View } from "react-native";
+import { useEffect, useState } from "react";
+import { StyleSheet, Text, View } from "react-native";
 import Timer from "../components/Timer";
-import { Config } from "../config/config";
+import { DateModel } from "../models/Date";
+import { ExerciseModel } from "../models/Exercise";
+import { getExercise, saveExercise } from "../services/Exercise";
 
 const Exercise = () => {
+  const [isCompleted, setIsCompleted] = useState<boolean>(false);
+
+  useEffect(() => {
+    getExercise().then((exercise: ExerciseModel) => {
+      setIsCompleted(DateModel.compareDates(exercise.date));
+    });
+  });
+
+  const handleExerciseCompleted = async (): Promise<void> => {
+    saveExercise({ date: new Date().toISOString(), isCompleted: true });
+  };
+
+  const onExerciseTimerUpdate = (n: number) => {
+    if (!n && !isCompleted) {
+      handleExerciseCompleted();
+    }
+  };
+
   return (
     <View style={styles.exerciseBody}>
       <View style={styles.headerContainer}>
@@ -12,7 +33,11 @@ const Exercise = () => {
           commonly used to demonstrate the visual form of a document or .
         </Text>
       </View>
-      <Timer />
+      <Timer
+        onUpdate={onExerciseTimerUpdate}
+        duration={36}
+        isCompleted={isCompleted}
+      />
     </View>
   );
 };

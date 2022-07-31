@@ -11,6 +11,8 @@ import Water from "./pages/Water";
 import Settings from "./pages/Settings";
 import { Config } from "./config/config";
 import { ScreenNames } from "./models/Page";
+import { getDBConnection } from "./services/database";
+import { createExercisesTable } from "./services/Exercise";
 
 const Stack = createNativeStackNavigator();
 
@@ -18,6 +20,12 @@ const App = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
+    const initializeDb = async (): Promise<void> => {
+      createExercisesTable();
+    };
+
+    initializeDb();
+
     setTimeout(() => {
       setIsLoading(false);
     }, Config.INITIAL_LOADING_TIME);
